@@ -22,4 +22,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("items/", store_views.get_store_items, name="store-item-list"),
     path("items/create/", store_views.create_store_item, name="create-store-item"),
+    path("items/update/<int:item_id>", store_views.update_store_item, name="update-store-item"),
 ]
