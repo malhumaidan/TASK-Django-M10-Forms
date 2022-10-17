@@ -5,11 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <form action="{% url 'create-store-item' %}" method="POST">
-      {% csrf_token %} {{create_item}}
-      <button type="submit">Submit</button>
-    </form>
+    <div
+      class="container d-flex justify-content-center align-items-center"
+      style="background-color: #f7f7f7; height: 100vh"
+    >
+      <div>
+        <h1 class="pb-5">Create an item</h1>
+        {% load crispy_forms_tags %}
+        <form action="{% url 'create-store-item' %}" method="POST">
+          {% csrf_token %} {{ create_item | crispy }}
+          <button type="submit" class="btn btn-outline-dark">Add Item</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
