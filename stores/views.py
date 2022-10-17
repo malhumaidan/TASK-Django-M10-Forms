@@ -1,5 +1,5 @@
 from multiprocessing import context
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, Http404
 from django.shortcuts import render, redirect
 
 from stores import models
@@ -45,3 +45,12 @@ def update_store_item(request, item_id):
     }
     return render(request, "update_store_item.html", context)
 
+
+def delete_store_item(request, item_id):
+    try:
+        store_item = models.StoreItem(id=item_id)
+    except:
+        raise Http404
+
+    store_item.delete()
+    return redirect("store-item-list")

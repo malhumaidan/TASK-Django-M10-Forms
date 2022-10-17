@@ -37,9 +37,12 @@
                 <h6 class="card-subtitle mb-2 text-muted">Kind: {{ item.kind }}</h6>
                 <p class="card-text">{{ item.description }}</p> 
               </div>
-              <div class="card-footer">
-              <button class="d-flex btn btn-outline-dark" type="submit">
+              <div class="card-footer d-flex justify-content-between">
+              <button class=" btn btn-outline-dark" type="submit">
                 <a href="{% url 'update-store-item' item_id=item.id %}" class="text-reset" style="text-decoration: none;">Edit Item </a>
+              </button>
+              <button class=" btn btn-outline-danger align-item-center" type="submit">
+                <a href="{% url 'delete-store-item' item_id=item.id %}" class="text-reset" style="text-decoration: none;">Delete Item </a>
               </button>
             </div>
           </div>
